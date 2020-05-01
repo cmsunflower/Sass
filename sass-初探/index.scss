@@ -1,0 +1,29 @@
+$width: 100px;
+$img-w: 20px !default;
+$img-h: 20px !default;
+$bg-color: red !default;
+$border-radius: 4px !default;
+$align-v: middle;
+div {
+  border: 1px solid $bg-color;
+  border-radius: $border-radius;
+  display: inline-block;
+  padding: 2px 0;
+  //   background-color: $bg-color;
+  input {
+    border: none;
+  }
+  img {
+    vertical-align: $align-v;
+    width: $img-w;
+    height: $img-h;
+  }
+}
+@mixin displayOrHidden($flag:true) {
+    @if $flag{
+        display:block;
+    }
+    @else{
+        display:none;
+    }
+}

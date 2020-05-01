@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,OAAO",
+    "sources": [
+        "sass-if.scss"
+    ],
+    "names": [],
+    "file": "sass-if.css"
+}
