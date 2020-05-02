@@ -1,1 +1,120 @@
-/*@if*/
+// 1.@if
+//      @else-if @else
+
+//定义全局变量
+$w: 10px;
+//定义颜色 map
+$colors: (
+  navc: #333,
+  fcolor: #ccc,
+  bgs: #fff,
+);
+//定义背景色
+$bgc:(
+    bgc1:#FEA47F,
+    bgc2:#BDC581,
+    bgc3:#F8EFBA,
+    bgc4:#2C3A47,
+);
+//定义侧边栏 隐藏
+%slide {
+  width: 400px;
+  height: 162px;
+  display: none;
+}
+//定义侧边栏的显示
+%slide_show {
+  position: absolute;
+  left: 220px;
+  top:0;
+  display: block;
+  //阴影区域
+  box-shadow: 0 0 2px map-get($colors, fcolor);
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+i {
+  float: right;
+  right: 2px;
+  content: url("arrow.png");
+  width: 1.4 * $w;
+  height: 1.4 * $w;
+  padding: 4px 0;
+}
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+nav {
+  width: $w * 22;
+  background-color: map-get($colors, navc);
+  border-top-left-radius: ($w/2);
+  //nav 水平居中 上外边界200px 下外边界 200px
+  margin: 200px auto;
+  ul {
+    position: relative;
+    li {
+      padding: 10px;
+      span {
+        color: map-get($colors, fcolor);
+      }
+//     2.@for $i from 1 through 12 从1到12
+//     @for $i from 1 to 12 从1到11
+    //   @for $i from 1 through 4 {
+    //     &:hover {
+    //         .slide#{$i} {
+    //          @extend %slide_show;
+    //      }
+    //     }
+    //   }
+      $i:4;
+      //3.@while 循环
+      @while $i>=0{
+          &:hover{
+              .slide#{$i}{
+                  @extend %slide_show;
+              }
+          }
+          $i:$i - 1;
+      }
+      //使用@each实现
+    }
+  }
+}
+%p-a{
+   p{
+        padding:5px;
+    }
+    a{
+        font: {
+            size : 14px;
+            family : '微软雅黑';
+        }
+        margin-right: 20px;
+    } 
+}
+@for $i from 1 through 4 {
+  .slide#{$i} {
+    @extend %slide;
+    @extend %p-a;
+  }
+}
+//4.使用@each 进行遍历循环
+@each $key,$value in $bgc{
+    .#{$key}{
+      @if $key== bgc3{
+          color:#333;
+    }
+    @else{
+          //使用列表数组 修改字体颜色
+        color: map-get($colors, bgs);
+     }
+    //遍历列表组 设置背景颜色
+     background-color: $value;
+    }
+   
+     
+}

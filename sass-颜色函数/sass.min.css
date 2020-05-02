@@ -1,0 +1,24 @@
+* { margin: 0; padding: 0; }
+
+button { border: 0; outline: none; background-color: transparent; }
+
+div { width: 100%; text-align: center; margin-top: 200px; }
+
+.btn-primary, .btn-info, .btn-success, .btn-warning { line-height: 30px; width: 60px; border-radius: 2px; transition: transform 500ms,background-color 500ms; }
+
+.btn-primary { background-color: rgba(37, 204, 247, 0.5); content: 1; }
+
+.btn-primary:hover { transform: scale(0.2, 0.2); background-color: #25ccf7; }
+
+.btn-info { background-color: rgba(85, 230, 193, 0.5); content: 1; }
+
+.btn-info:hover { transform: scale(0.2, 0.2); background-color: #55e6c1; }
+
+.btn-success { background-color: rgba(179, 55, 113, 0.5); content: 1; }
+
+.btn-success:hover { transform: scale(0.2, 0.2); background-color: #b33771; }
+
+.btn-warning { background-color: rgba(249, 127, 81, 0.5); content: 1; }
+
+.btn-warning:hover { transform: scale(0.2, 0.2); background-color: #f97f51; }
+/*# sourceMappingURL=sass.min.css.map */

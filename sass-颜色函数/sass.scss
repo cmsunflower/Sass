@@ -1,0 +1,49 @@
+//  rgb
+//     green()
+//     red()
+//     blue()
+//     rgba()
+//     mix(color1,color2,weight)  weight是第一个颜色的权重
+
+//     opacity()/alpha() //获取透明度
+*{
+    margin:0;
+    padding:0;
+}
+button{
+    border:0;
+    outline: none;
+    background-color: transparent;
+}
+div{
+    //上外边距各200px
+    width: 100%;
+    //水平居中
+    text-align: center;
+    margin-top: 200px;
+}
+$colors:(
+    primary:#25CCF7,
+    info:#55E6C1,
+    success:#B33771,
+    warning:#F97F51
+);
+%btn-origin{
+    line-height: 30px;
+    width:60px;
+    border-radius: 2px;
+   transition: transform 500ms,background-color 500ms;
+}
+@each $key,$value in $colors{
+    .btn-#{$key}{
+        //使用了颜色函数 调整透明度
+        background-color: rgba($value,0.5);
+        @extend %btn-origin;
+        //获取当前元素的透明度
+        content:alpha($value);
+        &:hover{
+            transform: scale(0.2,0.2);
+            background-color: rgba($value, 1.0);
+        }
+    }
+}

@@ -1,0 +1,37 @@
+//居中对齐 水平 垂直方向
+@mixin center($width: null, $height: null) {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  @if not $width and not $height {
+    //宽高都没有
+    transform: translate(-50%, -50%);
+  } @else if $width and $height {
+    //宽高都定义了
+    width: $width;
+    height: $height;
+    margin-left: -($width/2);
+    margin-top: -($height/2);
+  } @else if not $height {
+    width: $width;
+    //给了高
+    margin-left: -($width/2);
+    transform: translateY(-50%);
+  } @else {
+    height: $height;
+    transform: translateX(-50%);
+    margin-left: -($width/2);
+  }
+}
+//水平方向居中
+@mixin horizontal-center($width:null) {
+    position: absolute;
+    left:percentage($number: 0.5);
+    //循环语句使用
+    @if not $width {
+        transform:translateX(-50%);
+    }
+    @else{
+        margin-left:-($width/2);
+    }
+}

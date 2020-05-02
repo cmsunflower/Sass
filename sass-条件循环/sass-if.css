@@ -1,2 +1,84 @@
-/*@if*/
+@charset "UTF-8";
+.slide1, .slide2, .slide3, .slide4 {
+  width: 400px;
+  height: 162px;
+  display: none;
+}
+
+nav ul li:hover .slide4, nav ul li:hover .slide3, nav ul li:hover .slide2, nav ul li:hover .slide1, nav ul li:hover .slide0 {
+  position: absolute;
+  left: 220px;
+  top: 0;
+  display: block;
+  box-shadow: 0 0 2px #ccc;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+i {
+  float: right;
+  right: 2px;
+  content: url("arrow.png");
+  width: 14px;
+  height: 14px;
+  padding: 4px 0;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+nav {
+  width: 220px;
+  background-color: #333;
+  border-top-left-radius: 5px;
+  margin: 200px auto;
+}
+
+nav ul {
+  position: relative;
+}
+
+nav ul li {
+  padding: 10px;
+}
+
+nav ul li span {
+  color: #ccc;
+}
+
+.slide1 p, .slide2 p, .slide3 p, .slide4 p {
+  padding: 5px;
+}
+
+.slide1 a, .slide2 a, .slide3 a, .slide4 a {
+  font-size: 14px;
+  font-family: '微软雅黑';
+  margin-right: 20px;
+}
+
+.bgc1 {
+  color: #fff;
+  background-color: #FEA47F;
+}
+
+.bgc2 {
+  color: #fff;
+  background-color: #BDC581;
+}
+
+.bgc3 {
+  color: #333;
+  background-color: #F8EFBA;
+}
+
+.bgc4 {
+  color: #fff;
+  background-color: #2C3A47;
+}
 /*# sourceMappingURL=sass-if.css.map */

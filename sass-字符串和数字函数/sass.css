@@ -1,0 +1,47 @@
+/*虽然有的内容页面上不能实际呈现*/
+/*content不能是数字 无引号字符串*/
+
+.p1::after {
+  content: uniquote("I'm fine");
+}
+
+.p2::after {
+  content: "helloworld";
+}
+
+.p3::after {
+  content: AAAA;
+}
+
+.p4::after {
+  content: aaaaaa;
+}
+
+.p5::after {
+  content: 0.21466;
+}
+
+.p6::after {
+  content: 3;
+}
+
+.p7::after {
+  content: 2;
+}
+
+.p8::after {
+  content: 2px;
+}
+
+.p9::after {
+  content: 1px;
+}
+
+.p10::after {
+  content: 50%;
+}
+
+.p11::after {
+  content: 2;
+}
+/*# sourceMappingURL=sass.css.map */

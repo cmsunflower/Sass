@@ -1,24 +1,38 @@
 //删除字符串的引号
-div{
-    content:unquote("I'm caimin");
-    //转小写
-    text:to-upper-case(aaaa);
-    //转大写
-    text:to-lower-case(AaSSX);
-    //数字函数简介
-    width:percentage(1/12);
-    //round() 近似值 四舍五入
-
-    //max() 最大值
-
-    //min() 最小值
-
-    //ceil() 向上取整
-
-    //floor() 向下取整
-
-    //abs() 取绝对值
-
-    //random()随机数
+*{
+    margin:0;
+    padding:0;
 }
-
+.p1::after{
+    content:uniquote("I'm fine");
+}
+.p2::after{
+    content:quote(helloworld);
+}
+.p3::after{
+    content:to-upper-case(aaaa);
+}
+.p4::after{
+    content: to-lower-case(AaaAaA);
+}
+.p5::after{
+    content:random();
+}
+.p6::after{
+    content:ceil(2.5);
+}
+.p7::after{
+    content:floor(2.2);
+}
+.p8::after{
+    content: max(1px,2px);
+}
+.p9::after{
+    content: min(1px,2px);
+}
+.p10::after{
+    content:percentage(1/2);
+}
+.p11::after{
+    content:round(2.2);
+}

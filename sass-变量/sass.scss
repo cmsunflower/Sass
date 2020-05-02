@@ -1,0 +1,116 @@
+// 1. 普通变量和默认变量
+//全局变量
+$w: 10px;
+//占位符 %
+%padd {
+  padding: 10px 0;
+}
+%bmargin {
+  margin-bottom: 5px;
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+
+$color: (
+  bgc: #ccc,
+  btnc: #333,
+  btnh: red,
+  c: #f8efba,
+);
+//水平居中
+@mixin horizontal-center($width: null) {
+  position: absolute;
+  left: percentage($number: 0.5);
+  //循环语句使用
+  @if not $width {
+    transform: translateX(-50%);
+  } @else {
+    width: $width;
+    margin-left: -($width/2);
+  }
+}
+//混合宏 使用@mixin创建 @include引用 可以传递参数
+@mixin input($bg) {
+  //占位符 引入 @extend
+  @extend %bmargin;
+  span {
+    display: inline-block;
+    background-image: url($bg);
+    background-repeat: no-repeat;
+    //变量乘法
+    background-size: $w * 2 $w * 2;
+    width: $w * 2;
+    height: $w * 2;
+    vertical-align: middle;
+  }
+  input {
+    border: none;
+    line-height: $w * 2.5;
+  }
+}
+.container {
+  @include horizontal-center($w * 20);
+  margin-top: $w * 20;
+  //局部变量
+  $c:map-get($color,c);
+  background-color: $c;
+  border: 1px solid map-get($color, bgc);
+  text-align: center;
+  img {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    //数值函数 percentage() 取百分数
+    border-radius: percentage(0.5);
+    top: -60%;
+  }
+}
+//列表项
+//sass 数据类型 有引号字符串
+$bgm: "user.png" "password.png";
+//登录名框
+@for $i from 1 through 2 {
+  .input-#{$i} {
+    @include input(nth($bgm, $i));
+  }
+}
+.input-1 {
+  @extend .input-1;
+  margin-top: 30px;
+}
+button {
+  border: 0;
+  outline: none;
+  background-color: transparent;
+  padding: 5px 0;
+  margin: 0 20px;
+  color: map-get($color, btnc);
+  //选择器 & 伪类选择器
+  &:hover {
+    //获取列表元素
+    color: map-get($color, btnh);
+  }
+}
+
+// 2.全局变量和局部变量
+// 3.选择器嵌套 &
+// 4.属性嵌套
+// 5.伪类嵌套
+// 6.混合宏 @mixin @include
+// 7.声明混合宏的时候
+// 创造一个混合宏--不带值的参数
+// 8.声明混合宏的时候 创造一个带值的参数
+// 9.传入多个参数 ...
+// 10.继承 @extend
+// 11.占位符 % 可以实现@extend的功能
+// 也不会有继承元素的影响 比较 %和@extend
+// 12.比较占位符 混合宏 继承 之间的区别
+// 13.插值 #{}
+// // 14.Sass数据类型
+// 15.字符串 有引号字符串 无引号字符串
+// 16.加减乘除
+// 单位要相同 乘法相同，可省略 不同会出错 除法运算 圆括号除法 函数除法
+// 17.颜色运算
+// 18.字符运算 + 是否为有引号和前者看齐

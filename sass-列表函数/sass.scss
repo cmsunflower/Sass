@@ -1,0 +1,82 @@
+// length($list)
+* {
+  margin: 0;
+  padding: 0;
+}
+$w: 10px;
+$position: center 0, center -50px, center -100px, center -150px;
+%margin {
+  margin: 5px;
+}
+.father {
+  display: flex;
+  justify-content: space-around;
+  margin-top:$w*20;
+}
+@for $i from 1 through 4 {
+  .son#{$i} {
+    width: 21.6 * $w;
+    height: 68px;
+    background-color: #ccc;
+    border-radius: ($w/2);
+    p {
+      display: inline-block;
+      font-size: 14px;
+    }
+    i {
+      background-image: url("list.png");
+      background-repeat: no-repeat;
+      background-size: 100%;
+      // nth($list,$item) 获取 $position 中对应的元素
+      background-position: nth($list: $position, $n: $i);
+      float: left;
+      //变量运算
+      width: $w * 5;
+      height: $w * 5;
+      border: 1px solid #ccc;
+      vertical-align: middle;
+      //使用占位符 设置margin
+      @extend %margin;
+      //伪元素选择器
+      &::after {
+        content: "";
+        display: block;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+//     nth($list,$item)
+
+//     join($list1,$list2[,$sperator])
+
+//     append($list1,$val[,$sperator])
+
+//     index($list,$val) 返回 val在列表中的索引位置
+
+//     introspection 判断函数
+
+//     type-of()
+
+//     unit()
+
+//     unitless() 程序自动添加单位
+
+//     comparable($number1,$number2) 判断两个元素是否可以合并
+
+//     if(flag,$if-true,$if-false)
+
+//     相当于三元运算符
+
+//     map函数
+
+//     map-get($map,$key)
+//     map-merge($map1,$map2)
+//     map-remove($map,$key) 返回一个新的map
+//     map-keys
+//     map-values
+
+//     map-has-key($map,$key)
+
+//     keywords($args) 返回一个新的map，$args的$keys去掉$是map的key,$value是map的value
